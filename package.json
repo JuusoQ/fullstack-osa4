@@ -1,0 +1,22 @@
+{
+  "name": "osa4",
+  "version": "1.0.0",
+  "description": "Fullstack open osa 4",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "nodemon index.js"
+  },
+  "author": "Juuso Haapanen",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
+}
