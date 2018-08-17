@@ -4,19 +4,26 @@ const app = express()
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const mongoose = require('mongoose')
-
 const blogsRouter = require('./controllers/blogs')
+const config = require('./utils/config')
 
 app.use(cors())
 app.use(bodyParser.json())
-app.use('/api/blogs', blogsRouter)
+app.use('/', blogsRouter)
 
-const mongoUrl = 'mongodb://jh-people:FullStackJuuso123@ds229771.mlab.com:29771/heroku_bgwjjhw8'
-mongoose.connect(mongoUrl)
+mongoose.connect(config.mongoUrl)
 
 
-const PORT = 3003
+const server = http.createServer(app)
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`)
+server.listen(config.PORT, () => {
+  console.log(`Server running on ${config.PORT}`)
 })
+
+server.on('close', () => {
+  mongoose.connection.close()
+})
+
+module.exports = {
+  app, server
+}

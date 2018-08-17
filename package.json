@@ -5,18 +5,22 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "nodemon index.js"
+    "test": "NODE_ENV=test jest --verbose",
+    "watch": "NODE_ENV=development nodemon index.js"
   },
   "author": "Juuso Haapanen",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
     "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "mongoose": "^5.2.5"
   },
   "devDependencies": {
-    "nodemon": "^1.18.3"
+    "jest": "^23.4.2",
+    "nodemon": "^1.18.3",
+    "supertest": "^3.1.0"
   }
 }

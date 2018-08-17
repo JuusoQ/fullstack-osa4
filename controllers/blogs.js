@@ -19,4 +19,15 @@ blogRouter.get('/api/blogs', (request, response) => {
       })
   })
 
+  blogRouter.delete('/api/blog/:id', async (request,response) => {
+    let blogId = request.params.id
+    try {
+      await Blog.findByIdAndRemove(id)
+      response.status(204).end()
+    } catch(e) {
+      console.log(e)
+      response.status(400).send({error:'Problem with ID'})
+    }
+  })
+
   module.exports = blogRouter
