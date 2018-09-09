@@ -24,8 +24,20 @@ const favoriteBlog = (blogs) => {
     }
 }
 
+const mostLikes = (blogs) => {
+    const res = blogs
+        .map(b => b.author)
+        .reduce((prev, current) => {
+            prev['author'] = current
+            prev['blogs'] = (prev['blogs'] || 0) +1
+            return prev
+        },{})
+    return res
+}
+ 
 module.exports = {
     dummy,
     favoriteBlog,
-    totalLikes
+    totalLikes,
+    mostLikes
 }

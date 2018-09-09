@@ -1,0 +1,17 @@
+POST http://localhost:3001/api/users
+
+{
+    "username":"testi",
+    "password":"testi",
+    "name":"Testi",
+    "adult":true
+}
+
+###
+
+POST http://localhost:3001/api/login
+
+{
+    "username":"juuso",
+    "password":"salasana"
+}
